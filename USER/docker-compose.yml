@@ -1,16 +1,16 @@
 
 
-# services:
-#   user:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     image: user:v1
-#     container_name: user
+services:
+  user:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: user:v1
+    container_name: user
 
-# networks:
-#   default:
-#     driver: bridge
-#     name: roboshop
-#     external: true
+networks:
+  default:
+    driver: bridge
+    name: roboshop
+    external: true
       

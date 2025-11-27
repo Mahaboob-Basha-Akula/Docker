@@ -1,16 +1,18 @@
 
 
-# services:
-#   catalogue:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     image: catalogue:v1
-#     container_name: catalogue
+services:
+  catalogue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: catalogue:v1
+    container_name: catalogue
+    depends_on:
+    - mongodb
 
-# networks:
-#   default:
-#     driver: bridge
-#     name: roboshop
-#     external: true
+networks:
+  default:
+    driver: bridge
+    name: roboshop
+    external: true
       
