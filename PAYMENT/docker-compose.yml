@@ -7,6 +7,16 @@ services:
       dockerfile: Dockerfile
     image: payment:v1
     container_name: payment
+    depends_on:
+    - cart
+    - user
+    - rabbitmq
+  cart:
+   image: cart:v1
+  user:
+   image: user:v1
+  rabbitmq:
+   image: rabbitmq:3   
 
 networks:
   default:
