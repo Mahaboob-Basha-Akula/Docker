@@ -7,6 +7,22 @@ services:
       dockerfile: Dockerfile
     image: frontend:v1
     container_name: frontend
+    depends_on:
+    - catalogue
+    - user
+    - cart
+    - shipping
+    - payment
+  cart:
+   image: cart:v1
+  user:
+   image: user:v1 
+  shipping:
+   image: shipping:v1
+  payment:
+   image: payment:v1  
+  catalogue:
+   image: catalogue:v1     
 
 networks:
   default:
