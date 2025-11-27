@@ -1,0 +1,16 @@
+
+
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mysql:v1
+    container_name: mysql
+
+networks:
+  default:
+    driver: bridge
+    name: roboshop
+    external: true
+      

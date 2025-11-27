@@ -1,0 +1,16 @@
+
+
+# services:
+#   shipping:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     image: shipping:v1
+#     container_name: shipping
+
+# networks:
+#   default:
+#     driver: bridge
+#     name: roboshop
+#     external: true
+      

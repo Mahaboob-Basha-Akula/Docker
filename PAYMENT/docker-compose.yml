@@ -1,0 +1,16 @@
+
+
+# services:
+#   payment:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     image: payment:v1
+#     container_name: payment
+
+# networks:
+#   default:
+#     driver: bridge
+#     name: roboshop
+#     external: true
+      

@@ -1,0 +1,16 @@
+
+
+# services:
+#   cart:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     image: cart:v1
+#     container_name: cart
+
+# networks:
+#   default:
+#     driver: bridge
+#     name: roboshop
+#     external: true
+      

@@ -1,0 +1,16 @@
+
+
+# services:
+#   catalogue:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     image: catalogue:v1
+#     container_name: catalogue
+
+# networks:
+#   default:
+#     driver: bridge
+#     name: roboshop
+#     external: true
+      
