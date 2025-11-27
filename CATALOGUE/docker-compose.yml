@@ -9,6 +9,8 @@ services:
     container_name: catalogue
     depends_on:
     - mongodb
+  mongodb:
+   container_name: mongodb  
 
 networks:
   default:
