@@ -55,7 +55,7 @@ services:
       context: ./USER
       dockerfile: Dockerfile
     image: user:v1
-    container_name: user:v1
+    container_name: user
     depends_on:
     - redis
     - mongodb
