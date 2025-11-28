@@ -1,5 +1,5 @@
 #!/bin/bash
-growpart /dev/nvme0n1 4
+growpart /dev/xvda 4
 lvextend -L +30G /dev/mapper/RootVG-varVol
 xfs_growfs /var
 dnf -y install dnf-plugins-core
