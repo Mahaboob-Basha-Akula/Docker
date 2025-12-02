@@ -25,8 +25,8 @@ RUN pip3 install --prefix=/install -r requirements.txt
 
 
 FROM python:3.11-slim
-WORKDIR /opt/server
 EXPOSE 8080
+WORKDIR /opt/server
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop 
 LABEL com.project="roboshop" \
       component="payment" \
@@ -39,7 +39,7 @@ ENV CART_HOST="cart" \
     AMQP_USER="roboshop" \
     AMQP_PASS="roboshop123"
 
-COPY --from=build chown=roboshop /install /usr/local/bin/
+COPY --from=build --chown=roboshop:roboshop /install /usr/local/bin/
 COPY --chown=roboshop:roboshop payment.ini .
 COPY *.py .
 COPY requirements.txt .
