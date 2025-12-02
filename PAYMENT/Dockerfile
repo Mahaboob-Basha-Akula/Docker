@@ -40,6 +40,8 @@ ENV CART_HOST="cart" \
     AMQP_PASS="roboshop123"
 
 COPY --from=build chown=roboshop /install /usr/local/bin/
-COPY --chown=roboshop:roboshop payment.ini *.py requirements.txt .
+COPY --chown=roboshop:roboshop payment.ini .
+COPY *.py .
+COPY requirements.txt .
 
 CMD [ "uwsgi","--ini","payment.ini" ]
