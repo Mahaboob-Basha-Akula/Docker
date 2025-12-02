@@ -19,6 +19,7 @@ WORKDIR /opt/server
 # COPY payment.ini *.py requirements.txt . /
 COPY payment.ini *.py requirements.txt . /
 
+# RUN pip3 install --prefix=/install -r requirements.txt
 RUN pip3 install --prefix=/install -r requirements.txt
 
 
@@ -38,6 +39,6 @@ ENV CART_HOST="cart" \
     AMQP_PASS="roboshop123"
 
 COPY --from=build chown=roboshop /install /usr/local/bin/
-COPY --chown=roboshop:roboshop payment.ini *.py requirements.txt ./
+COPY --chown=roboshop:roboshop payment.ini *.py requirements.txt .
 
 CMD [ "uwsgi","--ini","payment.ini" ]
