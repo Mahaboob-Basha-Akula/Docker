@@ -28,6 +28,7 @@ FROM python:3.9.25-alpine3.21
 EXPOSE 8080
 WORKDIR /opt/server
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop 
+RUN apk  add --no-cache pcre 
 LABEL com.project="roboshop" \
       component="payment" \
       creater="Mahaboob"
