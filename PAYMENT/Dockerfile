@@ -17,8 +17,9 @@ FROM python:3.9.25-alpine AS build
 WORKDIR /opt/server
 
 # COPY payment.ini *.py requirements.txt . /
-COPY payment.ini *.py requirements.txt . /
-
+COPY payment.ini .
+COPY *.py .
+COPY requirements.txt . 
 # RUN pip3 install --prefix=/install -r requirements.txt
 RUN pip3 install --prefix=/install -r requirements.txt
 
