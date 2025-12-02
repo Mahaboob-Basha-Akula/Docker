@@ -13,7 +13,7 @@
 #     AMQP_PASS="roboshop123"
 # CMD [ "uwsgi","--ini","payment.ini" ]    
 
-FROM python:3.9.25-alpine AS build
+FROM python:3.11-slim AS build
 WORKDIR /opt/server
 
 # COPY payment.ini *.py requirements.txt . /
@@ -24,7 +24,7 @@ COPY requirements.txt .
 RUN pip3 install --prefix=/install -r requirements.txt
 
 
-FROM python:3.9.25-alpine
+FROM python:3.11-slim
 WORKDIR /opt/server
 EXPOSE 8080
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop 
