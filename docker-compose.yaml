@@ -3,7 +3,7 @@ services:
     build:
       context: ./CATALOGUE
       dockerfile: Dockerfile
-    image: catalogue:v1
+    image: basha831750/catalogue:v1
     # container_name: catalogue
     # I have commented this lines to build only images 
     depends_on:
@@ -12,7 +12,7 @@ services:
     build:
       context: ./MONGODB
       dockerfile: Dockerfile
-    image: mongodb:v1
+    image: basha831750/mongodb:v1
     # container_name: mongodb 
     volumes:
       - mongodb:/data/db 
@@ -21,13 +21,13 @@ services:
     build:
       context: ./CART
       dockerfile: Dockerfile
-    image: cart:v1
+    image: basha831750/cart:v1
     # container_name: cart   
     depends_on:
     - catalogue
     - redis
   redis:
-   image: redis:7
+   image: basha831750/redis:7
   #  container_name: redis 
    volumes:
      - redis:/data
@@ -36,7 +36,7 @@ services:
     build:
       context: ./MYSQL
       dockerfile: Dockerfile
-    image: mysql:v1
+    image: basha831750/mysql:v1
     # container_name: mysql
     volumes:
       - mysql:/var/lib/mysql
@@ -44,7 +44,7 @@ services:
     build:
       context: ./PAYMENT
       dockerfile: Dockerfile
-    image: payment:v1
+    image: basha831750/payment:v1
     # container_name: payment
     depends_on:
     - cart
@@ -55,14 +55,14 @@ services:
     build:
       context: ./USER
       dockerfile: Dockerfile
-    image: user:v1
+    image: basha831750/user:v1
     # container_name: user
     depends_on:
     - redis
     - mongodb
 
   rabbitmq:
-    image: rabbitmq:3
+    image: basha831750/rabbitmq:3
     # container_name: rabbitmq
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
@@ -74,7 +74,7 @@ services:
     build:
       context: ./SHIPPING
       dockerfile: Dockerfile
-    image: shipping:v1
+    image: basha831750/shipping:v1
     # container_name: shipping
     depends_on:
     - cart
@@ -84,7 +84,7 @@ services:
     build:
       context: ./FRONTEND
       dockerfile: Dockerfile
-    image: frontend:v1
+    image: basha831750/frontend:v1
     # container_name: frontend
     ports:
       - "80:80"
