@@ -4,7 +4,8 @@ services:
       context: ./CATALOGUE
       dockerfile: Dockerfile
     image: catalogue:v1
-    container_name: catalogue
+    # container_name: catalogue
+    # I have commented this lines to build only images 
     depends_on:
     - mongodb
   mongodb:
@@ -12,7 +13,7 @@ services:
       context: ./MONGODB
       dockerfile: Dockerfile
     image: mongodb:v1
-    container_name: mongodb 
+    # container_name: mongodb 
     volumes:
       - mongodb:/data/db 
 
@@ -21,13 +22,13 @@ services:
       context: ./CART
       dockerfile: Dockerfile
     image: cart:v1
-    container_name: cart   
+    # container_name: cart   
     depends_on:
     - catalogue
     - redis
   redis:
    image: redis:7
-   container_name: redis 
+  #  container_name: redis 
    volumes:
      - redis:/data
 
@@ -36,7 +37,7 @@ services:
       context: ./MYSQL
       dockerfile: Dockerfile
     image: mysql:v1
-    container_name: mysql
+    # container_name: mysql
     volumes:
       - mysql:/var/lib/mysql
   payment:
@@ -44,7 +45,7 @@ services:
       context: ./PAYMENT
       dockerfile: Dockerfile
     image: payment:v1
-    container_name: payment
+    # container_name: payment
     depends_on:
     - cart
     - user
@@ -55,14 +56,14 @@ services:
       context: ./USER
       dockerfile: Dockerfile
     image: user:v1
-    container_name: user
+    # container_name: user
     depends_on:
     - redis
     - mongodb
 
   rabbitmq:
     image: rabbitmq:3
-    container_name: rabbitmq
+    # container_name: rabbitmq
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
@@ -74,7 +75,7 @@ services:
       context: ./SHIPPING
       dockerfile: Dockerfile
     image: shipping:v1
-    container_name: shipping
+    # container_name: shipping
     depends_on:
     - cart
     - mysql
@@ -84,7 +85,7 @@ services:
       context: ./FRONTEND
       dockerfile: Dockerfile
     image: frontend:v1
-    container_name: frontend
+    # container_name: frontend
     ports:
       - "80:80"
     depends_on:
